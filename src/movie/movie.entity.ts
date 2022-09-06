@@ -23,7 +23,7 @@ export class MovieEntity {
   @Column({default: ''})
   description: string;
 
-  @Column()
+  @Column({default: ''})
   icon: string;
 
   @Column({default: ''})

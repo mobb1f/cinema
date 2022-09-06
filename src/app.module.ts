@@ -6,12 +6,14 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import ormconfig from "@app/ormconfig";
 import { UserModule } from "@app/user/user.module";
 import { AuthMiddleware } from "@app/user/middlewares/auth.middleware";
+import {HallModule} from "@app/hall /hall.module";
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(ormconfig),
     MovieModule,
-    UserModule
+    UserModule,
+    HallModule
   ],
   controllers: [AppController],
   providers: [AppService],
