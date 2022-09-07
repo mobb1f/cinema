@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {SessionEntity} from "@app/session/session.entity";
 
 @Entity({name: 'movies' })
 export class MovieEntity {
@@ -31,5 +32,8 @@ export class MovieEntity {
 
   @Column({default: ''})
   trailer: string;
+
+  @OneToMany(() => SessionEntity, (session) => session.movie)
+  sessions: SessionEntity[];
 
 }

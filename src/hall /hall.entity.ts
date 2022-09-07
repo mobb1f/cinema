@@ -1,6 +1,7 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {SessionEntity} from "@app/session/session.entity";
 
-@Entity()
+@Entity({name: 'hall'})
 export class HallEntity {
     @PrimaryGeneratedColumn()
     id: number;
@@ -22,4 +23,7 @@ export class HallEntity {
 
     @Column()
     countPlaceInRow: number;
+
+    @OneToMany(() => SessionEntity, (session) => session.hall)
+    sessions: SessionEntity[];
 }

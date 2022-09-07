@@ -7,13 +7,15 @@ import ormconfig from "@app/ormconfig";
 import { UserModule } from "@app/user/user.module";
 import { AuthMiddleware } from "@app/user/middlewares/auth.middleware";
 import {HallModule} from "@app/hall /hall.module";
+import {SessionModule} from "@app/session/session.module";
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(ormconfig),
-    MovieModule,
-    UserModule,
-    HallModule
+      TypeOrmModule.forRoot(ormconfig),
+      MovieModule,
+      UserModule,
+      HallModule,
+      SessionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
